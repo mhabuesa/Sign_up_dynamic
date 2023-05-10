@@ -31,7 +31,7 @@
           <h3 class="title">Let's get in touch</h3>
           <p class="text">
             Hi, I am Abu Esa.<br>  I’m currently learning Dynamic Website Development with Raw PHP, Laravel framework. All of my projects are available at 
-            <a style="text-decoration: none; color: #1A70BC;"  href="https://github.com/mhabuesa" target="_blank"> <b> GitHub </b></a> 
+            <a style="text-decoration: none; color: #1A70BC;"  href="https://github.com/mhabuesa/Sign_up_dynamic.git" target="_blank"> <b> GitHub </b></a> 
           </p>
           
           <div class="social-media">
