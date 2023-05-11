@@ -26,9 +26,9 @@ session_start();
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $flag = true;
             $_SESSION['email_err'] = 'Invalid Email Format';
-            $_SESSION['old_email'] = $email;
+            $_SESSION['email_old'] = $email;
         }
-        $_SESSION['old_email'] = $email;
+        $_SESSION['email_old'] = $email;
         
     }
 
@@ -65,7 +65,7 @@ session_start();
         }
 
 
-        $_SESSION['old_pass'] = $pass;
+        $_SESSION['pass_old'] = $pass;
     }
 
 
