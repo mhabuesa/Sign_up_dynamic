@@ -168,6 +168,7 @@ session_start();
     <title>Sign Up - Abu Esa</title>
 
     <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -179,6 +180,24 @@ session_start();
 
     <!--css file-->
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .pass{
+        position: relative;
+      }
+
+      .pass i{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color:crimson;
+        text-align: center;
+        line-height: 40px;
+        right: 2px;
+        top: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="container1">
@@ -214,7 +233,7 @@ session_start();
 
               
             <div class="input-container">
-              <input type="text" name="email" class="input"  value="<?=(isset($_SESSION['old_email'])?$_SESSION['old_email']:'')?>"/>
+              <input type="text" name="email" class="input"/>
               <label for="">Email</label>
               <span>Email</span>
             </div>
@@ -224,8 +243,9 @@ session_start();
                       <?php }   ?>
 
 
-            <div class="input-container">
-              <input type="password" name="pass" class="input" value="<?=(isset($_SESSION['old_pass'])?$_SESSION['old_pass']:'')?>" />
+            <div class="input-container pass">
+              <input id="input" type="password" name="pass" class="input"/>
+              <i class="fa fa-eye" id="show_pass"> </i>
               <label for="">Password</label>
               <span>Password</span>
             </div>
@@ -258,26 +278,7 @@ session_start();
                       if(isset($_SESSION['pass_num_len'])){?>
                       <div class="err-container"> <?= $_SESSION['pass_num_len'];?> </div>
                       <?php }   ?>
-
-
-
-            
-
                       
-
-
-
-            
-           
-
-
-
-
-
-            
-
-
-            
             <input type="submit" value="Login" class="btn" />
             <div class="login"  > Don't have an account? <a href="index.php">Sign Up</a> </div>
           </form>
@@ -286,9 +287,23 @@ session_start();
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
 
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+
+$('#show_pass').click(function(){
+             var input = document.getElementById('input');
+             if(input.type == 'password'){
+                input.type = 'text';
+             }
+             else{
+                input.type = 'password';
+             }
+             
+        })
+    </script>
   
   
   </body>
