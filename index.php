@@ -11,6 +11,7 @@
     <title>Sign Up - Abu Esa</title>
 
     <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -22,6 +23,24 @@
 
     <!--css file-->
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .pass{
+        position: relative;
+      }
+
+      .pass i{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color:crimson;
+        text-align: center;
+        line-height: 40px;
+        right: 2px;
+        top: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="container1">
@@ -94,8 +113,9 @@
 
 
 
-            <div class="input-container">
-              <input type="password" name="pass" class="input" value="<?=(isset($_SESSION['old_pass'])?$_SESSION['old_pass']:'')?>" />
+            <div class="input-container pass">
+              <input id="input" type="password" name="pass" class="input" value="<?=(isset($_SESSION['old_pass'])?$_SESSION['old_pass']:'')?>" />
+              <i class="fa fa-eye" id="show_pass"> </i>
               <label for="">Password</label>
               <span>Password</span>
             </div>
@@ -131,8 +151,9 @@
 
 
 
-            <div class="input-container">
-              <input type="password" name="con_pass" class="input" value="<?=(isset($_SESSION['old_con_pass'])?$_SESSION['old_con_pass']:'')?>" />
+            <div class="input-container pass">
+              <input id="input2" type="password" name="con_pass" class="input" value="<?=(isset($_SESSION['old_con_pass'])?$_SESSION['old_con_pass']:'')?>" />
+              <i class="fa fa-eye" id="show_pass2"> </i>
               <label for="">Confirm Password</label>
               <span>Confirm Password</span>
             </div>
@@ -146,13 +167,9 @@
                       <div class="err-container"> <?= $_SESSION['match_pass_err'];?> </div>
                       <?php }   ?>
 
-                      
-
-
-
             <div class="input-container">
-              <input type="date" name="db" class="input" value="<?=(isset($_SESSION['old_db'])?$_SESSION['old_db']:'')?>" />
-              <label ></label>
+              <input style="padding-left: 130px;" type="date" name="db" class="input" value="<?=(isset($_SESSION['old_db'])?$_SESSION['old_db']:'')?>" />
+              <label >Date of Birth</label>
               <span>Date</span>
             </div>
 
@@ -215,10 +232,34 @@
       </div>
     </div>
 
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-   
-  
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script>
+
+$('#show_pass').click(function(){
+         var input = document.getElementById('input');
+         if(input.type == 'password'){
+            input.type = 'text';
+         }
+         else{
+            input.type = 'password';
+         }
+         
+    })
+
+    $('#show_pass2').click(function(){
+         var input = document.getElementById('input2');
+         if(input.type == 'password'){
+            input.type = 'text';
+         }
+         else{
+            input.type = 'password';
+         }
+         
+    })
+</script>
   </body>
 </html>
 <?php
